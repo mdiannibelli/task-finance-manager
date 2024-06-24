@@ -3,6 +3,7 @@ import { MdAccountCircle, MdOutlineNotificationsActive } from 'react-icons/md'
 import { PiHandWaving } from 'react-icons/pi'
 import { SiGoogletagmanager } from 'react-icons/si'
 import CurrentDate from './CurrentDate'
+import Link from 'next/link'
 
 const Navbar = () => {
     return (
@@ -20,7 +21,7 @@ const Navbar = () => {
                     <CurrentDate />
                 </div>
                 <div className='bg-moreDarkPurple p-1 rounded-2xl'>
-                    <MdAccountCircle className='text-darkPurple hover:text-lightWhite cursor-pointer duration-300' size={30} />
+                    <Link href='/auth/login'><MdAccountCircle className='text-darkPurple hover:text-lightWhite cursor-pointer duration-300' size={30} /></Link>
                 </div>
                 <div className='bg-moreDarkPurple p-1 rounded-2xl'>
                     <MdOutlineNotificationsActive className='text-darkPurple hover:text-lightWhite cursor-pointer duration-300' size={30} />
