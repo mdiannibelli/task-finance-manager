@@ -19,7 +19,7 @@ export default function RegisterPage() {
                     <input type="password" id='password' className='rounded py-2 px-4 mt-2 outline-none bg-slate-800 text-white font-light' />
                 </div>
                 <div className='flex flex-col'>
-                    <button type='submit' className='rounded bg-slate-900 text-white font-light w-64 mt-8 py-2 hover:bg-darkPurple duration-300'>Register</button>
+                    <button type='submit' className='rounded bg-slate-900 text-white font-light w-64 mt-4 py-2 hover:bg-darkPurple duration-300'>Register</button>
                     <span className='text-white mt-4 text-xs text-right font-light'>If you have an account you can <Link href='/auth/login' className='text-darkPurple font-semibold'>login here</Link></span>
                 </div>
             </form>

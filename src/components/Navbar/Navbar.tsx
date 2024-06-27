@@ -4,8 +4,11 @@ import { PiHandWaving } from 'react-icons/pi'
 import { SiGoogletagmanager } from 'react-icons/si'
 import CurrentDate from './CurrentDate'
 import Link from 'next/link'
+import { auth } from '@/auth.config'
 
-const Navbar = () => {
+const Navbar = async () => {
+    const session = await auth()
+    const userName = session?.user ? session.user.name : "Unknown User"
     return (
         <header className='flex justify-between bg-darkPurple p-4 mt-2 mx-4 rounded-md items-center'>
             <div className='flex items-center'>
@@ -14,7 +17,7 @@ const Navbar = () => {
             </div>
             <div className='flex items-center'>
                 <PiHandWaving className='text-lightPink mx-2' size={40} />
-                <h1 className='text-white font-semibold text-2xl'>Welcome userName!</h1>
+                <h1 className='text-white font-semibold text-2xl'>Welcome {userName}</h1>
             </div>
             <div className='flex gap-x-6 items-center'>
                 <div>

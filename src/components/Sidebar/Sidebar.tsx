@@ -15,7 +15,8 @@ const dashboardLinks = [
         path: '/dashboard/finance',
         icon: <GrMoney size={30} />,
         name: 'Finance'
-    }
+    },
+
 ]
 
 const Sidebar = () => {

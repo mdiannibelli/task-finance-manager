@@ -8,11 +8,11 @@ async function main() {
     const { users } = initialData
 
     users.forEach(async (user) => {
-        const { email, fullname, password, role, todos } = user
+        const { email, name, password, role, todos } = user
         const userDB = await prisma.user.create({
             data: {
                 email,
-                fullname,
+                name,
                 password,
                 role,
                 Tasks: {

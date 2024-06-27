@@ -28,7 +28,22 @@ export const authConfig = {
             }
             return true;
         },
+        jwt({ token, user }) {
+            // user <- todo el objeto de usuario
+            //? console.log({token,user})
+            if (user) { // Le pasamos el user al token
+                token.data = user;
+            }
+            return token;
+        },
+        session({ session, token, user }) {
+            //? console.log({session, token, user})
+            // Ahora lo que nos paso el token.data será la sesion
+            session.user = token.data as any;
+            return session
+        }
     },
+
     providers: [
         Credentials({
             async authorize(credentials) {
@@ -42,7 +57,7 @@ export const authConfig = {
 
                 //! Post seed:
                 // Buscar el correo
-                const user = await prisma.user.findFirst({
+                const user = await prisma.user.findUnique({
                     where: { email: email.toLowerCase() }
                 })
                 if (!user) return null;
@@ -52,7 +67,7 @@ export const authConfig = {
 
                 // Regresar el usuario sin el password
                 const { password: _, ...rest } = user;
-                //? console.log({rest})
+                //? console.log({ rest })
                 return rest;
             },
         }),

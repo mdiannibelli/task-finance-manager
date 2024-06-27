@@ -17,4 +17,8 @@
 6. Show seed in UI ✅
 7. Authjs, login and session. https://nextjs.org/learn/dashboard-app/adding-authentication
 - install authjs, generate auth secret and configure auth.config.ts
+- Create login form (csr) & "authenticate" login action
+- get session in layout of login & register
+- configure jwt token and session in auth.config
+- create logout action
 

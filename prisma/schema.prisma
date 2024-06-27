@@ -18,7 +18,7 @@ enum TaskType {
   weekly
 }
 
-enum Roles {
+enum Role {
   admin
   user
 }
@@ -38,11 +38,11 @@ model Task {
 
 model User {
   id            String    @id @default(uuid())
-  fullname      String
-  email         String
+  name          String?
+  email         String    @unique
   emailVerified DateTime?
   password      String
+  role          Role      @default(user)
   image         String?
-  role          Roles
   Tasks         Task[] // 1 : n
 }
