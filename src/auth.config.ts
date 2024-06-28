@@ -8,7 +8,8 @@ import NextAuth from 'next-auth';
 const authenticatedRoutes = [
     '/dashboard',
     '/dashboard/tasks',
-    '/dashboard/finance'
+    '/dashboard/finance',
+    '/dashboard/profile',
 ]
 
 export const authConfig = {

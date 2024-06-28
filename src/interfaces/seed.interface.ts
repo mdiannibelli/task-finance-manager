@@ -8,6 +8,7 @@ export interface SeedUser {
     todos: SeedTodos[]
 }
 
+
 // Todos 
 export interface SeedTodos {
     title: string

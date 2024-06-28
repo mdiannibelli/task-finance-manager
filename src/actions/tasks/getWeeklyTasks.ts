@@ -1,12 +1,15 @@
 'use server'
 
+import { auth } from "@/auth.config"
 import prisma from "@/lib/prisma"
 
-export const getWeeklyTasks = async (userId: string) => {
+export const getWeeklyTasks = async () => {
+    const session = await auth()
+    if (!session?.user) return
     try {
         const weeklyTasks = await prisma.user.findUnique({
             where: {
-                id: userId
+                id: session.user.id
             },
             include: {
                 Tasks: {
@@ -23,7 +26,8 @@ export const getWeeklyTasks = async (userId: string) => {
         if (!weeklyTasks) return
         return {
             ok: true,
-            tasks: weeklyTasks.Tasks
+            tasks: weeklyTasks.Tasks,
+            type: weeklyTasks.Tasks.at(1)?.type
         }
     } catch (error) {
         console.log(error);

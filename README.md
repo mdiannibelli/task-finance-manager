@@ -21,4 +21,5 @@
 - get session in layout of login & register
 - configure jwt token and session in auth.config
 - create logout action
-
+- middleware.ts to protect routes
+- register action
